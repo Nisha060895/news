@@ -1,4 +1,11 @@
-{{sectionName}}
-<ng-container *ngFor="let card of cardData">
-    <app-card [cardInfo]="card"></app-card>
-</ng-container>
+<div class="section-container">
+    <div class="section-title">
+        {{sectionName}}
+    </div>
+    <div class="section-cards col-lg-12 col-12 col-xs-12">
+        <div *ngFor="let card of cardData" class="col-lg-4 col-12 col-xs-12">
+            <app-card [cardInfo]="card"></app-card>
+        </div>
+    </div>
+    <a href="#" class="section-view-more">View more</a>
+</div>

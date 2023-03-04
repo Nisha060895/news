@@ -1,0 +1,24 @@
+.card-container {
+    box-shadow: 2px 2px 5px 3px #ede5e5;
+    margin: 1rem;
+    height: 100%;
+
+    .card-image {
+        height: 150px;
+        width: 100%;
+    }
+
+    .card-content {
+        padding: 0.5rem;
+    }
+}
+
+#Tourism {
+    .card-image {
+        height: 100%;
+        width: 100%;
+    }
+    .card-content {
+        display: none;
+    }
+}
