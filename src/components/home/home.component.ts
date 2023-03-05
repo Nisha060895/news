@@ -24,9 +24,12 @@ export class HomeComponent implements OnInit {
     // Change structure of the reponse object
     this.homeService.getData().subscribe((data: CustomResponse) => {
       data.record.record.forEach(x => {
-        this.newsData[x.primaryTag] = this.newsData[x.primaryTag] ? [...this.newsData[x.primaryTag], x] : [x];
+        this.newsData[x.primaryTag] = this.newsData[x.primaryTag] ? (
+          this.newsData[x.primaryTag].length < 3 ? [...this.newsData[x.primaryTag], x] : this.newsData[x.primaryTag])
+           : [x];
       });
-      this.sectionsList = Object.keys(this.newsData);
+      // this.sectionsList = Object.keys(this.newsData);
+      this.sectionsList = ['Government', 'Tourism', 'Lifestyle', 'Events'];
     });
   }
 

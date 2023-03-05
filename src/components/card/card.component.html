@@ -1,10 +1,16 @@
 <div class="card-container" [id]="cardInfo.primaryTag">
-        <img [src]="cardInfo.postImageUrl" alt="cardInfo.title" class="card-image">
+    <img [src]="cardInfo.postImageUrl" alt="cardInfo.title" class="card-image">
     <div class="card-content">
-        <div>
+        <div class="read-time-div">
             <i>{{cardInfo.publishedAt | date: 'MMM dd, yyyy'}}</i>&nbsp;.&nbsp;<i>{{cardInfo.readTime}} min read</i>
         </div>
         <h5>{{cardInfo.title}}</h5>
-        <button class="btn btn-primary">View More</button>
+        <div class="card-hover-content">
+            <span class="card-text-content">
+                {{cardInfo.content}}
+            </span>
+            <a class="card-view-more-link">Read More</a>
+        </div>
+        <button class="btn card-view-more">View More</button>
     </div>
 </div>

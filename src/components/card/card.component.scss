@@ -1,24 +1,104 @@
 .card-container {
-    box-shadow: 2px 2px 5px 3px #ede5e5;
-    margin: 1rem;
-    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: 1rem 1rem 0;
 
     .card-image {
-        height: 150px;
+        height: 200px;
         width: 100%;
     }
 
     .card-content {
-        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        padding: 0.8rem 0.8rem 0.4rem;
+
+        .card-text-content,
+        .card-view-more-link {
+            display: none;
+        }
+
+        .card-view-more {
+            border-radius: 2rem;
+            color: rgb(215, 0, 0);
+            background: rgba(215, 0, 0, 0.3);
+            align-self: center;
+
+            &:hover {
+                background: rgba(215, 0, 0, 0.2);
+            }
+        }
     }
 }
 
-#Tourism {
-    .card-image {
-        height: 100%;
-        width: 100%;
+@media only screen and (min-width: 769px) {
+    #Tourism {
+        position: relative;
+
+        .card-image {
+            height: 100%;
+            width: 100%;
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 20%;
+            background: linear-gradient(to top, black, transparent);
+            color: white;
+
+            .card-view-more,
+            .card-hover-content,
+            .read-time-div,
+            .card-text-content,
+            .card-view-more-link {
+                display: none;
+            }
+
+            &:hover {
+                border-radius: 2rem 2rem 0 0;
+                height: 55%;
+                max-height: 55%;
+                background-color: rgb(0, 0, 0);
+                -webkit-transition: height 700ms ease-in;
+                -moz-transition: height 700ms ease-in;
+                -o-transition: height 700ms ease-in;
+                transition: height 700ms ease-in 200ms;
+                cursor: pointer;
+
+                .read-time-div,
+                .card-view-more-link {
+                    display: inline-block;
+                }
+
+                .card-hover-content {
+                    display: block;
+                    overflow: hidden;
+
+                    .card-text-content {
+                        display: -webkit-box;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                    }
+
+                    .card-view-more-link {
+                        color: #4ad5a8;
+                        text-decoration: none;
+                        font-size: 1.2rem;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
     }
-    .card-content {
-        display: none;
+
+    .card-container {
+        height: 100%;
+
+        .card-image {
+            height: auto;
+        }
     }
 }

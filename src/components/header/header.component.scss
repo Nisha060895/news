@@ -7,4 +7,9 @@
     background: linear-gradient(to right, lightblue, darkblue);
     color: white;
     font-size: 2rem;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
