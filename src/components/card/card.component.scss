@@ -3,6 +3,10 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
     margin: 1rem 1rem 0;
 
+    .slide-up-down-div {
+        display: none;
+    }
+
     .card-image {
         height: 250px;
         width: 100%;
@@ -14,12 +18,12 @@
         padding: 0.8rem 0.8rem 0.4rem;
 
         .card-title {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 500;
         }
 
         .read-time-div {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
 
         .card-text-content,
@@ -55,7 +59,7 @@
             border-radius: 2rem 2rem 0 0;
             height: 55%;
             max-height: 55%;
-            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
             -webkit-transition: height 700ms ease-in;
             -moz-transition: height 700ms ease-in;
             -o-transition: height 700ms ease-in;
@@ -107,7 +111,7 @@
             border-radius: 2rem 2rem 0 0;
             height: 55%;
             max-height: 55%;
-            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
             -webkit-transition: height 700ms ease-in;
             -moz-transition: height 700ms ease-in;
             -o-transition: height 700ms ease-in;
@@ -154,45 +158,76 @@
     }
 
     #Government {
-        animation: slideUpDown 1s linear 1s;
+        .slide-up-down-div {
+            display: flex;
+            flex-direction: column;
+
+            .div-1, .div-2 {
+                animation: slideUpFromCenter 1.7s linear;
+            }
+
+            .div-3 {
+                animation: slideUpFromBottom 1.7s linear 1s;
+            }
+        }
 
         .card-image {
-            // height: 50%;
+            max-height: 0;
+            overflow: hidden;
             transform-origin: top left;
-            animation: slideIn 1s;
+            animation: slideIn 1s linear 2.7s forwards;
         }
 
         .card-content {
-            .read-time-div {
-                height: 0;
-                opacity: 0;
-                animation: slideInDown 600ms linear 600ms forwards;
-            }
-
-            h5 {
-                height: 0;
-                opacity: 0;
-                animation: slideInDown 600ms linear 800ms forwards;
-            }
-
+            .read-time-div,
+            .card-title,
             .card-view-more {
                 height: 0;
                 opacity: 0;
-                animation: slideInDown 600ms linear 1s forwards;
+            }
+
+            .read-time-div {
+                animation: slideDownInSeq 600ms linear 3.5s forwards;
+            }
+
+            .card-title {
+                animation: slideDownInSeq 600ms linear 3.6s forwards;
+            }
+
+            .card-view-more {
+                animation: slideDownInSeq 600ms linear 3.7s forwards;
             }
         }
 
-        @keyframes slideUpDown {
+        @keyframes slideUpFromCenter {
             0% {
-                opacity: 0;
+                background: none;
+                height: 0;
+                transform: translateY(200px);
             }
 
             100% {
-                opacity: 1;
+                background: rgba(0, 0, 0, 0.6);
+                height: 200px;
+                transform: translateY(0);
             }
         }
 
-        @keyframes slideInDown {
+        @keyframes slideUpFromBottom {
+            0% {
+                background: none;
+                height: 0;
+                transform: translateY(400px);
+            }
+
+            100% {
+                background: rgba(0, 0, 0, 0.6);
+                height: 200px;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDownInSeq {
             0% {
                 height: 0;
                 opacity: 0;
@@ -206,76 +241,14 @@
 
         @keyframes slideIn {
             0% {
+                max-height: 0;
                 transform: rotate(-90deg);
             }
 
             100% {
+                max-height: 250px;
                 transform: rotate(0deg);
             }
         }
     }
-
-    #Tourism {
-        position: relative;
-
-        .card-image {
-            height: 100%;
-            width: 100%;
-        }
-
-        .card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 20%;
-            background: linear-gradient(to top, black, transparent);
-            color: white;
-
-            .card-view-more,
-            .card-hover-content,
-            .read-time-div,
-            .card-text-content,
-            .card-view-more-link {
-                display: none;
-            }
-
-            &:hover {
-                border-radius: 2rem 2rem 0 0;
-                height: 55%;
-                max-height: 55%;
-                background-color: rgb(0, 0, 0);
-                -webkit-transition: height 700ms ease-in;
-                -moz-transition: height 700ms ease-in;
-                -o-transition: height 700ms ease-in;
-                transition: height 700ms ease-in 200ms;
-                cursor: pointer;
-
-                .read-time-div,
-                .card-view-more-link {
-                    display: inline-block;
-                }
-
-                .card-hover-content {
-                    display: block;
-                    overflow: hidden;
-
-                    .card-text-content {
-                        display: -webkit-box;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        -webkit-line-clamp: 3;
-                        -webkit-box-orient: vertical;
-                    }
-
-                    .card-view-more-link {
-                        color: #4ad5a8;
-                        text-decoration: none;
-                        font-size: 1.2rem;
-                        font-weight: 500;
-                    }
-                }
-            }
-        }
-    }
-
 }
