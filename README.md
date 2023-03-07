@@ -1,27 +1,43 @@
-# Hidubai
+<<----- XYZ News ----->>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
+---> Version Info
 
-## Development server
+- Angular - 11.1.1
+- Bootstrap - 5.3.0 - CDN Link in index.html
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+---> Requirements
 
-## Code scaffolding
+1. Create a Homepage for a news website “XYZ News”.
+2. Page Layout:
+   a. Home page will have 4 sections, each section should have 3 cards.
+   b. The page should be response to support both desktop and mobile browsers.
+3. Data for Sections & Cards:
+   a. Data for the home page sections, and cards in each section should be fetched
+   using the API mentioned below –
+   API Details:
+   API Endpoint https://tej-dev.s3.ap-southeast1.amazonaws.com/hiring/sfed/assignment/recent-news
+   API Method GET
+4. Animations:
+   a. The home page will have animation during user interactions.
+   b. The animations on page load, mouse over/tap
+5. Sections:
+   a. Section 1 title should be “Government”. This section must have only cards with
+   primaryTag as ”Government” from the API response.
+   b. Section 2 title should be “Tourism”. This section must have only cards with
+   primaryTag as ”Tourism” from the API response.
+   c. Sections 3 and 4 could be anything of your choice.
+6. Cards in each section:
+   a. You can choose to show what data you want from the API response on the card.
+   b. The card UI should be professional and good looking.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---> Pre-requisites
 
-## Build
+- Please install Nodejs, NPM, Git, IDE(VS Code)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+---> IDE Steps
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Clone Repository - news
+- Open repo in IDE
+- Open Terminal and Run -> npm install --force (Just to avoid version conflicts)
+- Run --> npm start
+- Open browser -> Run localhost:4200
