@@ -1,5 +1,7 @@
 .card-container {
     height: 400px;
+    max-height: 400px;
+    overflow: scroll;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
     margin: 1rem 1rem 0;
 
@@ -7,9 +9,11 @@
         display: none;
     }
 
-    .card-image {
-        height: 250px;
-        width: 100%;
+    .card-image-container {
+        .card-image {
+            height: 250px;
+            width: 100%;
+        }
     }
 
     .card-content {
@@ -47,15 +51,19 @@
 #Tourism {
     position: relative;
 
-    .card-image {
+    .card-image-container {
         height: 100%;
-        width: 100%;
 
-        &:hover {
-            cursor: pointer;
+        .card-image {
+            height: 100%;
+            width: 100%;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
-        &:hover + .card-content {
+        &:hover+.card-content {
             border-radius: 2rem 2rem 0 0;
             height: 55%;
             max-height: 55%;
@@ -147,6 +155,11 @@
 }
 
 @media only screen and (min-width: 769px) {
+    .card-container {
+        max-height: 400px;
+        overflow: hidden;
+    }
+
     .card-content {
         .card-title {
             font-size: 1.25rem !important;
@@ -162,23 +175,30 @@
             display: flex;
             flex-direction: column;
 
-            .div-1, .div-2 {
-                animation: slideUpFromCenter 1.7s linear;
+            .div-1 {
+                animation: slideUpFromCenter 1.4s linear;
             }
 
-            .div-3 {
-                animation: slideUpFromBottom 1.7s linear 1s;
+            .div-2 {
+                animation: slideUpFromCenter 1.4s linear, slideUpFromBottom 1.4s linear 1.4s;
             }
         }
 
-        .card-image {
-            max-height: 0;
-            overflow: hidden;
-            transform-origin: top left;
-            animation: slideIn 1s linear 2.7s forwards;
+        .card-image-container {
+            height: 0;
+            background-color: rgba(0, 0, 0, 0.25);
+            animation: setImageDiv 0.1s linear 2.8s forwards;
+
+            .card-image {
+                max-height: 0;
+                overflow: hidden;
+                transform-origin: top left;
+                animation: slideIn 1.2s linear 2.8s forwards;
+            }
         }
 
         .card-content {
+
             .read-time-div,
             .card-title,
             .card-view-more {
@@ -187,15 +207,15 @@
             }
 
             .read-time-div {
-                animation: slideDownInSeq 600ms linear 3.5s forwards;
+                animation: slideDownInSeq 600ms linear 4s forwards;
             }
 
             .card-title {
-                animation: slideDownInSeq 600ms linear 3.6s forwards;
+                animation: slideDownInSeq 600ms linear 4.1s forwards;
             }
 
             .card-view-more {
-                animation: slideDownInSeq 600ms linear 3.7s forwards;
+                animation: slideDownInSeq 600ms linear 4.2s forwards;
             }
         }
 
@@ -248,6 +268,16 @@
             100% {
                 max-height: 250px;
                 transform: rotate(0deg);
+            }
+        }
+
+        @keyframes setImageDiv {
+            0% {
+                height: 250px;
+            }
+
+            100% {
+                height: 250px;
             }
         }
     }
